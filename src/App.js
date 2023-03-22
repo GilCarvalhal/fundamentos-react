@@ -6,11 +6,15 @@ class Button extends Component {
   }
 }
 
+function formatName(name, lastName) {
+  return name + lastName;
+}
+
 class Teste extends Component {
   render() {
     return (
       <>
-        <h1>Hello World</h1>
+        <h1>Hello World {formatName("Gil ", "Carvalhal")} </h1>
         <Button />
       </>
     );
