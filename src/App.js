@@ -2,27 +2,33 @@ import React, { Component } from "react";
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super();
 
     this.state = {
-      name: "",
+      signed: false,
     };
+    this.toggleState = this.toggleState.bind(this);
+  }
+
+  toggleState() {
+    this.setState({ signed: !this.state.signed });
   }
 
   render() {
     return (
-      <main>
-        <h1>{this.state.name}</h1>
-
-        <input
-          value={this.state.name}
-          onChange={(e) => this.setState({ name: e.target.value })}
-        />
-
-        <button onClick={() => console.log("Estado atual: ", this.state.name)}>
-          Mostrar estado
-        </button>
-      </main>
+      <>
+        {this.state.signed ? (
+          <>
+            <button onClick={this.toggleState}>Sair</button>
+            <h1>Logado</h1>
+          </>
+        ) : (
+          <>
+            <button onClick={this.toggleState}>Entrar</button>
+            <h1>Deslogado</h1>
+          </>
+        )}
+      </>
     );
   }
 }
