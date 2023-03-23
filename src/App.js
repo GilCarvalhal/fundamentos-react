@@ -1,24 +1,36 @@
 import React, { Component } from "react";
-import Timer from "./Timer";
+
+// const names = ["Gil", "Camila", "Maria", "João"]
+
+const names = [
+  {
+    name: "Gil",
+    age: 22,
+  },
+  {
+    name: "Camila",
+    age: 20,
+  },
+  {
+    name: "Maria",
+    age: 21,
+  },
+];
 
 class App extends Component {
   constructor(props) {
-    super(props);
-
-    this.state = {
-      showTimer: true,
-    };
+    super();
   }
 
   render() {
     return (
-      <main>
-        {this.state.showTimer && <Timer />}
-
-        <button onClick={() => this.setState({ showTimer: false })}>
-          Remover Timer
-        </button>
-      </main>
+      <ul>
+        {names.map((person, index) => (
+          <li key={index}>
+            <span>Nome: {person.name}</span> - Idade: <span>{person.age}</span>
+          </li>
+        ))}
+      </ul>
     );
   }
 }
