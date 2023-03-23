@@ -1,34 +1,24 @@
 import React, { Component } from "react";
+import Timer from "./Timer";
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
-      signed: false,
+      showTimer: true,
     };
-    this.toggleState = this.toggleState.bind(this);
-  }
-
-  toggleState() {
-    this.setState({ signed: !this.state.signed });
   }
 
   render() {
     return (
-      <>
-        {this.state.signed ? (
-          <>
-            <button onClick={this.toggleState}>Sair</button>
-            <h1>Logado</h1>
-          </>
-        ) : (
-          <>
-            <button onClick={this.toggleState}>Entrar</button>
-            <h1>Deslogado</h1>
-          </>
-        )}
-      </>
+      <main>
+        {this.state.showTimer && <Timer />}
+
+        <button onClick={() => this.setState({ showTimer: false })}>
+          Remover Timer
+        </button>
+      </main>
     );
   }
 }
