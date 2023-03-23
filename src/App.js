@@ -1,21 +1,5 @@
 import React, { Component } from "react";
-
-// const names = ["Gil", "Camila", "Maria", "João"]
-
-const names = [
-  {
-    name: "Gil",
-    age: 22,
-  },
-  {
-    name: "Camila",
-    age: 20,
-  },
-  {
-    name: "Maria",
-    age: 21,
-  },
-];
+import "./styles.css";
 
 class App extends Component {
   constructor(props) {
@@ -24,13 +8,9 @@ class App extends Component {
 
   render() {
     return (
-      <ul>
-        {names.map((person, index) => (
-          <li key={index}>
-            <span>Nome: {person.name}</span> - Idade: <span>{person.age}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <h1>Hello World</h1>
+      </div>
     );
   }
 }
